@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class MovementWithoutCheck : MonoBehaviour
 {
     [SerializeField] InputAction jump;
+    [SerializeField] InputAction movement;
     [SerializeField] float jumpForce;
     [SerializeField] float movementSpeed;
 
@@ -26,8 +27,10 @@ public class MovementWithoutCheck : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(jump.IsPressed() && isJumping)
+        if(jump.IsPressed())
         {
+            rb.AddForce(Vector3.up * jumpForce * Time.fixedDeltaTime, ForceMode.Impulse);
+            Debug.Log("Space");
             StartCoroutine(WaitForForce());
         }
     }
@@ -44,10 +47,8 @@ public class MovementWithoutCheck : MonoBehaviour
 
     IEnumerator WaitForForce()
     {
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        isJumping = false;
+        //rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         yield return new WaitForSeconds(1);
-        isJumping = true;
     }
 
     IEnumerator WaitAndPrint()
