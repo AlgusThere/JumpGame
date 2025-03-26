@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,9 +8,11 @@ public class Movement : MonoBehaviour
     [SerializeField] InputAction fly;
     [SerializeField] InputAction rotation;
     [SerializeField] InputAction jump;
+    [SerializeField] InputAction leftAndRight;
     [SerializeField] float jumpForce = 0f;
     [SerializeField] float flyStrength = 100f;
     [SerializeField] float rotationStrength = 100f;
+    [SerializeField] float leftAndRightSpeed = 0;
 
     Rigidbody rb;
     bool isGrounded;
@@ -24,32 +27,37 @@ public class Movement : MonoBehaviour
     {
         fly.Enable();
         jump.Enable();
-        //rotation.Enable();
+        leftAndRight.Enable();
+        rotation.Enable();
     }
 
     private void FixedUpdate()
     {
         StartFly();
         Jump();
-        //ProcessRotation();
+        StartLeftAndRight();
+        ProcessRotation();
     }
 
-    private void Jump()
-    {
-        if(jump.IsPressed())
-        {
-            rb.AddRelativeForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isGrounded = false;
-        }
-    }
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnCollisionStay(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
         }
     }
+    
+    private void Jump()
+    {
+        if(jump.IsPressed() && isGrounded)
+        {
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            isGrounded = false;
+        }
+    }
+
 
     private void StartFly()
     {
@@ -73,6 +81,24 @@ public class Movement : MonoBehaviour
         }
     }
 
+    void StartLeftAndRight()
+    {
+        float isLeftOrRight = leftAndRight.ReadValue<float>();
+
+        if (isLeftOrRight < 0)
+        {
+            GoLeftOrRight(leftAndRightSpeed);
+        }
+        else if (isLeftOrRight > 0)
+        {
+            GoLeftOrRight(-leftAndRightSpeed);
+        }
+    }
+
+    private void GoLeftOrRight(float goWhere)
+    {
+        rb.AddForce(Vector3.left * goWhere * Time.deltaTime, ForceMode.Impulse);
+    }
     private void StartRotation(float rotationThisFrame)
     {
         rb.freezeRotation = true;

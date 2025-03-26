@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 847693016}
   - component: {fileID: 847693020}
   - component: {fileID: 847693021}
+  - component: {fileID: 847693022}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -561,7 +562,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 48
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!114 &847693021
 MonoBehaviour:
@@ -570,7 +571,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 847693015}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cbf025c6818be54598d0562f80e637d, type: 3}
   m_Name: 
@@ -642,9 +643,74 @@ MonoBehaviour:
       m_Action: Jump
       m_Flags: 0
     m_Flags: 0
-  jumpForce: 1
+  leftAndRight:
+    m_Name: Left And Right
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 7cb845c9-f993-4ecc-8230-dca45ada97bb
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 1D Axis
+      m_Id: c9a95e4b-9650-4cec-828d-376c1e9afc3e
+      m_Path: 1DAxis
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Left And Right
+      m_Flags: 4
+    - m_Name: negative
+      m_Id: 8d8afb7e-fcfe-414d-966a-b28f491c206a
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Left And Right
+      m_Flags: 8
+    - m_Name: positive
+      m_Id: 7546dc30-ffa4-4920-ab4d-139fadb563b0
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Left And Right
+      m_Flags: 8
+    m_Flags: 0
+  jumpForce: 5
   flyStrength: 1000
   rotationStrength: 100
+  leftAndRightSpeed: 5
+--- !u!114 &847693022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 847693015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cbf1065f97afdc4e9b18b8e1b89fb0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jump:
+    m_Name: Jump
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 2e243291-5491-41c0-b8d7-7e77ff7cb4fb
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a75126e7-c66c-464f-a1e1-8e44d93846d8
+      m_Path: <Keyboard>/space
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Jump
+      m_Flags: 0
+    m_Flags: 0
+  jumpForce: 200
+  movementSpeed: 2
 --- !u!1 &1112667475
 GameObject:
   m_ObjectHideFlags: 0
