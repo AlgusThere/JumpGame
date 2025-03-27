@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Bum
+  - Point
   layers:
   - Default
   - TransparentFX
