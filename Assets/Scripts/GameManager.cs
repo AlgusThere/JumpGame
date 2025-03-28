@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
         {
             gamePanel.SetActive(false);
             gameOverPanel.SetActive(true);
+            gamePanelIsActive = false;
             gameOverScoreText.text = scoreText.text;
         }
     }
