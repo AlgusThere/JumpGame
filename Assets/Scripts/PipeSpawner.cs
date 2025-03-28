@@ -2,11 +2,21 @@ using UnityEngine;
 
 public class PipeSpawner : MonoBehaviour
 {
-    [SerializeField] float maxTime;
+    [SerializeField] public float maxTime;
     [SerializeField] float heightRange;
     [SerializeField] GameObject _pipe;
 
     float _timer;
+
+    public static PipeSpawner instance = null;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -14,6 +24,11 @@ public class PipeSpawner : MonoBehaviour
     }
 
     private void Update()
+    {
+        TimeCalculator();
+    }
+
+    private void TimeCalculator()
     {
         if (_timer > maxTime)
         {
