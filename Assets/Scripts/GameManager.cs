@@ -24,9 +24,20 @@ public class GameManager : MonoBehaviour
 
     int randomRangeNumber;
     int currentScore;
+    public int selectedCharacter;
 
     bool isEqual = true;
     bool gamePanelIsActive;
+
+    public static GameManager instance = null;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     //PipeSpawner pipeSpawner;
     //CollisionManager scored;
@@ -37,6 +48,9 @@ public class GameManager : MonoBehaviour
         //scored = GetComponent<CollisionManager>();
         //currentScore = scored.score;
 
+        selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
+        character = characters[selectedCharacter];
+        clone = Instantiate(character, spawnPoint.position, Quaternion.identity);
 
         Time.timeScale = 0;
         startPanel.SetActive(true);
@@ -50,7 +64,7 @@ public class GameManager : MonoBehaviour
         CharacterDestroyed();
         TimeChanger();
 
-        if(Input.GetKeyDown(KeyCode.Escape) && gamePanelIsActive)
+        if (Input.GetKeyDown(KeyCode.Escape) && gamePanelIsActive)
         {
             Time.timeScale = 0;
             pausePanel.SetActive(true);
@@ -87,11 +101,6 @@ public class GameManager : MonoBehaviour
         gamePanel.SetActive(true);
         gamePanelIsActive = true;
         Time.timeScale = 1;
-
-        int selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
-        character = characters[selectedCharacter];
-        clone = Instantiate(character, spawnPoint.position, Quaternion.identity);
-
     }
 
     public void ClickCustomizeButton()
@@ -99,7 +108,12 @@ public class GameManager : MonoBehaviour
         startPanel.SetActive(false);
         customizePanel.SetActive(true);
         gamePanelIsActive = false;
+    }
 
+    public void ClickApplyButton()
+    {
+        customizePanel.SetActive(false);
+        startPanel.SetActive(true);
     }
 
     public void ClickTryAgainButton()

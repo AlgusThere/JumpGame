@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterSelect : MonoBehaviour
@@ -8,12 +9,20 @@ public class CharacterSelect : MonoBehaviour
 
     public static CharacterSelect instance = null;
 
+    bool isStartCharacterOnStage;
+
     private void Awake()
     {
         if(instance == null)
         {
             instance = this;
         }
+    }
+
+    private void Start()
+    {
+        //PlayerPrefs.GetInt("selectedCharacter");
+        //characters[selectedCharacter].SetActive(true);
     }
 
     public void OnClickNextCharacterButton()
@@ -37,5 +46,6 @@ public class CharacterSelect : MonoBehaviour
     public void OnClickApplyButton()
     {
         PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
+        GameManager.instance.ClickApplyButton();
     }
 }
