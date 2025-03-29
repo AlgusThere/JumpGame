@@ -7,14 +7,20 @@ public class GameManager : MonoBehaviour
 {
     [Header("Objects")]
     [SerializeField] GameObject startPanel;
+    [SerializeField] GameObject customizePanel;
     [SerializeField] GameObject gamePanel;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject character;
 
+    [SerializeField] GameObject[] characters;
+    [SerializeField] Transform spawnPoint;
+
     [Header("Texts")]
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI gameOverScoreText;
+
+    GameObject clone;
 
     int randomRangeNumber;
     int currentScore;
@@ -30,6 +36,7 @@ public class GameManager : MonoBehaviour
         //pipeSpawner = GetComponent<PipeSpawner>();
         //scored = GetComponent<CollisionManager>();
         //currentScore = scored.score;
+
 
         Time.timeScale = 0;
         startPanel.SetActive(true);
@@ -80,6 +87,19 @@ public class GameManager : MonoBehaviour
         gamePanel.SetActive(true);
         gamePanelIsActive = true;
         Time.timeScale = 1;
+
+        int selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
+        character = characters[selectedCharacter];
+        clone = Instantiate(character, spawnPoint.position, Quaternion.identity);
+
+    }
+
+    public void ClickCustomizeButton()
+    {
+        startPanel.SetActive(false);
+        customizePanel.SetActive(true);
+        gamePanelIsActive = false;
+
     }
 
     public void ClickTryAgainButton()
