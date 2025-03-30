@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,17 +10,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gamePanel;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject pausePanel;
-    [SerializeField] GameObject character;
+    [SerializeField] public GameObject character;
 
     [Header("Character")]
     [SerializeField] GameObject[] characters;
-    [SerializeField] Transform spawnPoint;
 
     [Header("Texts")]
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI gameOverScoreText;
 
-    GameObject clone;
+    //GameObject clone;
 
     int randomRangeNumber;
     int currentScore;
@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
 
     bool isEqual = true;
     bool gamePanelIsActive;
-    bool firstPressToSpace;
 
     public static GameManager instance = null;
 
@@ -38,6 +37,7 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
     }
+
 
     //PipeSpawner pipeSpawner;
     //CollisionManager scored;
@@ -53,8 +53,12 @@ public class GameManager : MonoBehaviour
 
         selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
         character = characters[selectedCharacter];
-        clone = Instantiate(character, spawnPoint.position, Quaternion.identity);
-        clone.SetActive(true);
+        character.SetActive(true);
+
+
+        //clone = Instantiate(character, spawnPoint.position, Quaternion.identity);
+        //clone.SetActive(true);
+
 
         Time.timeScale = 0;
         randomRangeNumber = Random.Range(1, 5);
@@ -73,10 +77,9 @@ public class GameManager : MonoBehaviour
             pausePanel.SetActive(true);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && firstPressToSpace)
+        if(Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 0)
         {
             Time.timeScale = 1;
-            firstPressToSpace = false;
         }
     }
 

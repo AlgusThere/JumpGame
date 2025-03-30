@@ -396,6 +396,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6916405529232895046, guid: 6e130cb9c206c184c911eafc3804c27f, type: 3}
+      propertyPath: Composition.DeadZone.Size.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916405529232895046, guid: 6e130cb9c206c184c911eafc3804c27f, type: 3}
+      propertyPath: Composition.DeadZone.Size.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916405529232895046, guid: 6e130cb9c206c184c911eafc3804c27f, type: 3}
+      propertyPath: Composition.HardLimits.Size.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6916405529232895046, guid: 6e130cb9c206c184c911eafc3804c27f, type: 3}
+      propertyPath: Composition.HardLimits.Size.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7753817980500360426, guid: 6e130cb9c206c184c911eafc3804c27f, type: 3}
       propertyPath: m_Name
       value: CinemachineCamera
