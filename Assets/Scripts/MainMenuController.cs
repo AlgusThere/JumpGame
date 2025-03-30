@@ -25,7 +25,12 @@ public class MainMenuController : MonoBehaviour
     void Start()
     {
         startPanel.SetActive(true);
-        PlayerPrefs.GetInt("selectedCharacter");
+
+        selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
+    }
+
+    private void Update()
+    {
     }
 
     public void ClickStartButton()

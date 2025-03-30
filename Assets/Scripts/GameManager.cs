@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject character;
 
+    [Header("Character")]
     [SerializeField] GameObject[] characters;
     [SerializeField] Transform spawnPoint;
 
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
 
     bool isEqual = true;
     bool gamePanelIsActive;
+    bool firstPressToSpace;
 
     public static GameManager instance = null;
 
@@ -46,9 +48,13 @@ public class GameManager : MonoBehaviour
         //scored = GetComponent<CollisionManager>();
         //currentScore = scored.score;
 
+        gamePanel.SetActive(true);
+        gamePanelIsActive = true;
+
         selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
         character = characters[selectedCharacter];
         clone = Instantiate(character, spawnPoint.position, Quaternion.identity);
+        clone.SetActive(true);
 
         Time.timeScale = 0;
         randomRangeNumber = Random.Range(1, 5);
@@ -65,6 +71,12 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
             pausePanel.SetActive(true);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space) && firstPressToSpace)
+        {
+            Time.timeScale = 1;
+            firstPressToSpace = false;
         }
     }
 
@@ -90,14 +102,6 @@ public class GameManager : MonoBehaviour
             Debug.Log(PipeSpawner.instance.maxTime);
             isEqual = false;
         }
-    }
-
-    public void ClickStartButton()
-    {
-
-        gamePanel.SetActive(true);
-        gamePanelIsActive = true;
-        Time.timeScale = 1;
     }
 
     public void ClickTryAgainButton()
