@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [Header("Objects")]
-    [SerializeField] GameObject startPanel;
-    [SerializeField] GameObject customizePanel;
     [SerializeField] GameObject gamePanel;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject pausePanel;
@@ -53,7 +51,6 @@ public class GameManager : MonoBehaviour
         clone = Instantiate(character, spawnPoint.position, Quaternion.identity);
 
         Time.timeScale = 0;
-        startPanel.SetActive(true);
         randomRangeNumber = Random.Range(1, 5);
         Debug.Log("Alýnan sayý: " + randomRangeNumber);
     }
@@ -97,23 +94,10 @@ public class GameManager : MonoBehaviour
 
     public void ClickStartButton()
     {
-        startPanel.SetActive(false);
+
         gamePanel.SetActive(true);
         gamePanelIsActive = true;
         Time.timeScale = 1;
-    }
-
-    public void ClickCustomizeButton()
-    {
-        startPanel.SetActive(false);
-        customizePanel.SetActive(true);
-        gamePanelIsActive = false;
-    }
-
-    public void ClickApplyButton()
-    {
-        customizePanel.SetActive(false);
-        startPanel.SetActive(true);
     }
 
     public void ClickTryAgainButton()

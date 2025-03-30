@@ -10,15 +10,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] GameObject customizePanel;
     [SerializeField] GameObject[] characters;
 
-    [Header("Other")]
-    [SerializeField] Transform spawnPoint;
-
-    [Header("Texts")]
-    [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] TextMeshProUGUI gameOverScoreText;
-
-    int currentScore;
-    public int selectedCharacter;
+    public int selectedCharacter = 0;
 
     public static MainMenuController instance = null;
 
@@ -33,6 +25,7 @@ public class MainMenuController : MonoBehaviour
     void Start()
     {
         startPanel.SetActive(true);
+        PlayerPrefs.GetInt("selectedCharacter");
     }
 
     public void ClickStartButton()
@@ -44,6 +37,33 @@ public class MainMenuController : MonoBehaviour
     {
         startPanel.SetActive(false);
         customizePanel.SetActive(true);
+        //PlayerPrefs.GetInt("selectedCharacter");
+        characters[selectedCharacter].SetActive(true);
+    }
+    public void OnClickNextCharacterButton()
+    {
+        characters[selectedCharacter].SetActive(false);
+        selectedCharacter = (selectedCharacter + 1) % characters.Length;
+        characters[selectedCharacter].SetActive(true);
+    }
+
+    public void OnClickPreviousCharacterButton()
+    {
+        characters[selectedCharacter].SetActive(false);
+        selectedCharacter--;
+        if (selectedCharacter < 0)
+        {
+            selectedCharacter += characters.Length;
+        }
+        characters[selectedCharacter].SetActive(true);
+    }
+
+    public void OnClickApplyButton()
+    {
+        PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
+        customizePanel.SetActive(false);
+        startPanel.SetActive(true);
+        characters[selectedCharacter].SetActive(false);
     }
 
     public void ClickApplyButton()

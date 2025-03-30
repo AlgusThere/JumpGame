@@ -46,6 +46,5 @@ public class CharacterSelect : MonoBehaviour
     public void OnClickApplyButton()
     {
         PlayerPrefs.SetInt("selectedCharacter", selectedCharacter);
-        GameManager.instance.ClickApplyButton();
     }
 }
