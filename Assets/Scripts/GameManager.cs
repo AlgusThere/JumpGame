@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     int currentScore;
     public int selectedCharacter;
 
+    public CinemachineCamera cam;
+
     bool isEqual = true;
     bool gamePanelIsActive;
 
@@ -54,6 +56,8 @@ public class GameManager : MonoBehaviour
         selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
         character = characters[selectedCharacter];
         character.SetActive(true);
+        cam.Follow = character.transform;
+        cam.LookAt = character.transform;
 
 
         //clone = Instantiate(character, spawnPoint.position, Quaternion.identity);
