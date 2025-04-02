@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
             pausePanel.SetActive(true);
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 0)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 0)
         {
             Time.timeScale = 1;
         }
@@ -106,6 +106,7 @@ public class GameManager : MonoBehaviour
         {
             //pipeSpawner.maxTime--;
             PipeSpawner.instance.maxTime -= 1;
+            PipeMover.instance.movementSpeed += 1;
             Debug.Log(PipeSpawner.instance.maxTime);
             isEqual = false;
         }
