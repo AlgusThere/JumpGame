@@ -22,12 +22,16 @@ public class GameManager : MonoBehaviour
     //GameObject clone;
 
     int randomRangeNumber;
+    int randomRangeNumber1;
+    int randomRangeNumber2;
     int currentScore;
     public int selectedCharacter;
 
     public CinemachineCamera cam;
 
     bool isEqual = true;
+    bool isEqual1 = true;
+    bool isEqual2 = true;
     bool gamePanelIsActive;
 
     public static GameManager instance = null;
@@ -50,25 +54,35 @@ public class GameManager : MonoBehaviour
         //scored = GetComponent<CollisionManager>();
         //currentScore = scored.score;
 
+        //clone = Instantiate(character, spawnPoint.position, Quaternion.identity);
+        //clone.SetActive(true);
+
+        SetActiveGamePanel();
+        SetActiveSelectedCharacter();
+
+        Time.timeScale = 0;
+        randomRangeNumber = Random.Range(1, 2);
+        randomRangeNumber1 = Random.Range(3, 4);
+        randomRangeNumber2 = Random.Range(5, 6);
+        Debug.Log("Alýnan sayý: " + randomRangeNumber);
+        Debug.Log("Alýnan sayý: " + randomRangeNumber1);
+        Debug.Log("Alýnan sayý: " + randomRangeNumber2);
+    }
+
+    private void SetActiveGamePanel()
+    {
         gamePanel.SetActive(true);
         gamePanelIsActive = true;
+    }
 
+    private void SetActiveSelectedCharacter()
+    {
         selectedCharacter = PlayerPrefs.GetInt("selectedCharacter");
         character = characters[selectedCharacter];
         character.SetActive(true);
         cam.Follow = character.transform;
         cam.LookAt = character.transform;
-
-
-        //clone = Instantiate(character, spawnPoint.position, Quaternion.identity);
-        //clone.SetActive(true);
-
-
-        Time.timeScale = 0;
-        randomRangeNumber = Random.Range(1, 5);
-        Debug.Log("Alýnan sayý: " + randomRangeNumber);
     }
-
 
     void Update()
     {
@@ -106,9 +120,21 @@ public class GameManager : MonoBehaviour
         {
             //pipeSpawner.maxTime--;
             PipeSpawner.instance.maxTime -= 1;
-            PipeMover.instance.movementSpeed += 1;
             Debug.Log(PipeSpawner.instance.maxTime);
             isEqual = false;
+        }
+
+        else if (randomRangeNumber1 == currentScore && isEqual1)
+        {
+            PipeSpawner.instance.maxTime -= 0.5f;
+            Debug.Log(PipeSpawner.instance.maxTime);
+            isEqual1 = false;
+        }
+        else if (randomRangeNumber2 == currentScore && isEqual2)
+        {
+            PipeSpawner.instance.maxTime -= 0.5f;
+            Debug.Log(PipeSpawner.instance.maxTime);
+            isEqual2 = false;
         }
     }
 
