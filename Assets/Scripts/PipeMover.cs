@@ -23,9 +23,13 @@ public class PipeMover : MonoBehaviour
         if (PipeSpawner.instance.maxTime == 2 && movementSpeed == 3f)
         {
             movementSpeed += 3;
-            BackgroundLoop.instance.speed += 1;
-
             Debug.Log("SPEED: " + movementSpeed);
+            
+            if(BackgroundLoop.instance.speed == 20)
+            {
+                return;
+            }
+            BackgroundLoop.instance.speed += 1;
         }
         //else if (PipeSpawner.instance.maxTime == 2.5f && movementSpeed == 2f)
         //{

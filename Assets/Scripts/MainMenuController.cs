@@ -10,7 +10,7 @@ public class MainMenuController : MonoBehaviour
     [SerializeField] GameObject customizePanel;
     [SerializeField] GameObject[] characters;
 
-    public int selectedCharacter = 0;
+    public int selectedCharacter;
 
     public static MainMenuController instance = null;
 
