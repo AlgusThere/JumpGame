@@ -22,7 +22,7 @@ public class CollisionManager : MonoBehaviour
     private void Start()
     {
         highScore = PlayerPrefs.GetInt("scoreText");
-        highScoreText.text = "En yüksek skor: " + highScore.ToString();
+        highScoreText.text = "HIGH SCORE: " + highScore.ToString();
         scoreText.text = score.ToString();
     }
 

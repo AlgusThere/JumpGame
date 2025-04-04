@@ -815,58 +815,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 58015339}
-    - target: {fileID: 2051085235277265922, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ClickStartButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 2051085235277265922, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenuController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2662942980572279089, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3275745355794194731, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 58015339}
-    - target: {fileID: 3275745355794194731, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClickNextCharacterButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 3275745355794194731, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenuController, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 3349452408769575314, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 58015339}
-    - target: {fileID: 3349452408769575314, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ClickCustomizeButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 3349452408769575314, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenuController, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 3359365846611485814, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 58015339}
-    - target: {fileID: 3359365846611485814, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClickApplyButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 3359365846611485814, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenuController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5643214733097978657, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 5662127133961659199, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -947,30 +907,24 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7458312512270819028, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7491198183412135176, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
       propertyPath: m_Name
       value: MainMenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231618207066972001, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 58015339}
+    - target: {fileID: 8231618207066972001, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ExitAppButton
       objectReference: {fileID: 0}
     - target: {fileID: 8358322460799145769, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 58015339}
-    - target: {fileID: 8358322460799145769, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClickPreviousCharacterButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 8358322460799145769, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MainMenuController, Assembly-CSharp
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 5970373410497347274, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
-    - {fileID: 894372788067953493, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 622ba6caadb62b449b28b515c8380475, type: 3}

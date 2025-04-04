@@ -22,16 +22,16 @@ public class GameManager : MonoBehaviour
     //GameObject clone;
 
     int randomRangeNumber;
-    int randomRangeNumber1;
-    int randomRangeNumber2;
+    //int randomRangeNumber1;
+    //int randomRangeNumber2;
     int currentScore;
     public int selectedCharacter;
 
     public CinemachineCamera cam;
 
     bool isEqual = true;
-    bool isEqual1 = true;
-    bool isEqual2 = true;
+    //bool isEqual1 = true;
+    //bool isEqual2 = true;
     bool gamePanelIsActive;
 
     public static GameManager instance = null;
@@ -62,11 +62,11 @@ public class GameManager : MonoBehaviour
 
         Time.timeScale = 0;
         randomRangeNumber = Random.Range(1, 2);
-        randomRangeNumber1 = Random.Range(3, 4);
-        randomRangeNumber2 = Random.Range(5, 6);
+        //randomRangeNumber1 = Random.Range(3, 4);
+        //randomRangeNumber2 = Random.Range(5, 6);
         Debug.Log("Alýnan sayý: " + randomRangeNumber);
-        Debug.Log("Alýnan sayý: " + randomRangeNumber1);
-        Debug.Log("Alýnan sayý: " + randomRangeNumber2);
+        //Debug.Log("Alýnan sayý: " + randomRangeNumber1);
+        //Debug.Log("Alýnan sayý: " + randomRangeNumber2);
     }
 
     private void SetActiveGamePanel()
@@ -119,23 +119,23 @@ public class GameManager : MonoBehaviour
         if (randomRangeNumber == currentScore && isEqual == true)
         {
             //pipeSpawner.maxTime--;
-            PipeSpawner.instance.maxTime -= 1;
+            PipeSpawner.instance.maxTime -= 2;
             Debug.Log(PipeSpawner.instance.maxTime);
             isEqual = false;
         }
 
-        else if (randomRangeNumber1 == currentScore && isEqual1)
-        {
-            PipeSpawner.instance.maxTime -= 0.5f;
-            Debug.Log(PipeSpawner.instance.maxTime);
-            isEqual1 = false;
-        }
-        else if (randomRangeNumber2 == currentScore && isEqual2)
-        {
-            PipeSpawner.instance.maxTime -= 0.5f;
-            Debug.Log(PipeSpawner.instance.maxTime);
-            isEqual2 = false;
-        }
+        //else if (randomRangeNumber1 == currentScore && isEqual1)
+        //{
+        //    PipeSpawner.instance.maxTime -= 0.5f;
+        //    Debug.Log(PipeSpawner.instance.maxTime);
+        //    isEqual1 = false;
+        //}
+        //else if (randomRangeNumber2 == currentScore && isEqual2)
+        //{
+        //    PipeSpawner.instance.maxTime -= 0.5f;
+        //    Debug.Log(PipeSpawner.instance.maxTime);
+        //    isEqual2 = false;
+        //}
     }
 
     public void ClickTryAgainButton()

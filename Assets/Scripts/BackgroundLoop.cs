@@ -2,12 +2,22 @@ using UnityEngine;
 
 public class BackgroundLoop : MonoBehaviour
 {
-    [SerializeField] float speed = 1f;
+    [SerializeField] public float speed = 1f;
     [SerializeField] float width;
 
     SpriteRenderer spriteRenderer;
 
     Vector2 startSize;
+
+    public static BackgroundLoop instance = null;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {
