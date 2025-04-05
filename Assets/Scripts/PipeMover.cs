@@ -2,9 +2,7 @@ using UnityEngine;
 
 public class PipeMover : MonoBehaviour
 {
-    [SerializeField] public float movementSpeed = 3f;
-
-    bool isBackgroundSpeedUpdate;
+    [SerializeField] public float movementSpeed = 6f;
 
     public static PipeMover instance = null;
 
@@ -20,16 +18,23 @@ public class PipeMover : MonoBehaviour
     {
         transform.position += Vector3.left * movementSpeed * Time.deltaTime;
 
-        if (PipeSpawner.instance.maxTime == 2 && movementSpeed == 3f)
+
+        if (GameManager.instance.currentScore == GameManager.instance.randomRangeNumber && movementSpeed == 6f)
         {
-            movementSpeed += 3;
+            movementSpeed = 7f;
             Debug.Log("SPEED: " + movementSpeed);
-            
-            if(BackgroundLoop.instance.speed == 20)
+
+
+            if (BackgroundLoop.instance.speed == 20)
             {
                 return;
             }
             BackgroundLoop.instance.speed += 1;
+        }
+        else if (GameManager.instance.currentScore == GameManager.instance.randomRangeNumber1 && movementSpeed == 7f)
+        {
+            movementSpeed = 9f;
+            Debug.Log("SPEED: " + movementSpeed);
         }
         //else if (PipeSpawner.instance.maxTime == 2.5f && movementSpeed == 2f)
         //{

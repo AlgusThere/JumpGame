@@ -245,6 +245,11 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 2318479590175028950, guid: 312563062d6052c458d6b06b6ea82d8c, type: 3}
   m_PrefabInstance: {fileID: 9062813286196225299}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &536376125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2544168713772020112, guid: 3894ce3fe43c4af4a928457afa95b0e2, type: 3}
+  m_PrefabInstance: {fileID: 1473477789}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &781972197 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4436634243610708209, guid: 622ba6caadb62b449b28b515c8380475, type: 3}
@@ -286,6 +291,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1473477789
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2544168713772020112, guid: 3894ce3fe43c4af4a928457afa95b0e2, type: 3}
+      propertyPath: m_Name
+      value: CylinderPipes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678501919714823126, guid: 3894ce3fe43c4af4a928457afa95b0e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -28.214489
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678501919714823126, guid: 3894ce3fe43c4af4a928457afa95b0e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678501919714823126, guid: 3894ce3fe43c4af4a928457afa95b0e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678501919714823126, guid: 3894ce3fe43c4af4a928457afa95b0e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678501919714823126, guid: 3894ce3fe43c4af4a928457afa95b0e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678501919714823126, guid: 3894ce3fe43c4af4a928457afa95b0e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678501919714823126, guid: 3894ce3fe43c4af4a928457afa95b0e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678501919714823126, guid: 3894ce3fe43c4af4a928457afa95b0e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678501919714823126, guid: 3894ce3fe43c4af4a928457afa95b0e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8678501919714823126, guid: 3894ce3fe43c4af4a928457afa95b0e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3894ce3fe43c4af4a928457afa95b0e2, type: 3}
 --- !u!1 &1777452879 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6633012423286731388, guid: 945ad7ef952baf44dbf5817f3a82e901, type: 3}
@@ -674,6 +736,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PipeSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 8182459048220109634, guid: 757b52d454c3f4a4c85f935b2c711c80, type: 3}
+      propertyPath: _pipe
+      value: 
+      objectReference: {fileID: 536376125}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1079,3 +1145,4 @@ SceneRoots:
   - {fileID: 3090392083545103853}
   - {fileID: 4004701710374863458}
   - {fileID: 1979842614}
+  - {fileID: 1473477789}

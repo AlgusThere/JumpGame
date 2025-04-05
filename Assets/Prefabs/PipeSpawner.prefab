@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b4cb30ab19d994dae44eff4997ad8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 3
+  maxTime: 2
   heightRange: 4
-  _pipe: {fileID: 2544168713772020112, guid: 3894ce3fe43c4af4a928457afa95b0e2, type: 3}
+  _pipe: {fileID: 0}

@@ -21,18 +21,21 @@ public class GameManager : MonoBehaviour
 
     //GameObject clone;
 
-    int randomRangeNumber;
+    public int randomRangeNumber;
+    public int randomRangeNumber1;
     //int randomRangeNumber1;
     //int randomRangeNumber2;
-    int currentScore;
+    public int currentScore;
     public int selectedCharacter;
 
     public CinemachineCamera cam;
 
     bool isEqual = true;
+    bool isEqual1 = true;
     //bool isEqual1 = true;
     //bool isEqual2 = true;
     bool gamePanelIsActive;
+    public bool isPausePanelActive = false;
 
     public static GameManager instance = null;
 
@@ -61,10 +64,12 @@ public class GameManager : MonoBehaviour
         SetActiveSelectedCharacter();
 
         Time.timeScale = 0;
-        randomRangeNumber = Random.Range(1, 2);
+        randomRangeNumber = 10/*Random.Range(1, 2)*/;
+        randomRangeNumber1 = 50/*Random.Range(3, 4)*/;
         //randomRangeNumber1 = Random.Range(3, 4);
         //randomRangeNumber2 = Random.Range(5, 6);
         Debug.Log("Alýnan sayý: " + randomRangeNumber);
+        Debug.Log("Alýnan sayý: " + randomRangeNumber1);
         //Debug.Log("Alýnan sayý: " + randomRangeNumber1);
         //Debug.Log("Alýnan sayý: " + randomRangeNumber2);
     }
@@ -93,9 +98,10 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
             pausePanel.SetActive(true);
+            isPausePanelActive = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 0)
+        if (Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 0 && isPausePanelActive == false)
         {
             Time.timeScale = 1;
         }
@@ -119,9 +125,16 @@ public class GameManager : MonoBehaviour
         if (randomRangeNumber == currentScore && isEqual == true)
         {
             //pipeSpawner.maxTime--;
-            PipeSpawner.instance.maxTime -= 2;
+            PipeSpawner.instance.maxTime -= 0.5f;
             Debug.Log(PipeSpawner.instance.maxTime);
             isEqual = false;
+        }
+        else if (randomRangeNumber1 == currentScore && isEqual1 == true)
+        {
+            //pipeSpawner.maxTime--;
+            PipeSpawner.instance.maxTime -= 0.5f;
+            Debug.Log(PipeSpawner.instance.maxTime);
+            isEqual1 = false;
         }
 
         //else if (randomRangeNumber1 == currentScore && isEqual1)
@@ -148,6 +161,7 @@ public class GameManager : MonoBehaviour
         pausePanel.SetActive(false);
         gamePanel.SetActive(true);
         gamePanelIsActive = true;
+        isPausePanelActive = false;
         Time.timeScale = 1;
     }
 

@@ -23,6 +23,11 @@ public class MovementGetKey : MonoBehaviour
 
     private void Update()
     {
+        if(GameManager.instance.isPausePanelActive == true)
+        {
+            return;
+        }
+
         Jumping();
     }
 
