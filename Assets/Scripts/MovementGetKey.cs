@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 public class MovementGetKey : MonoBehaviour
 {
@@ -23,7 +23,7 @@ public class MovementGetKey : MonoBehaviour
 
     private void Update()
     {
-        if(GameManager.instance.isPausePanelActive == true)
+        if(GameManager.instance.isPausePanelActive == true || GameManager.instance.isPausePanelActivePhone == true)
         {
             return;
         }
@@ -33,14 +33,14 @@ public class MovementGetKey : MonoBehaviour
 
     private void Jumping()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
         {
             Debug.Log("space");
             anim.SetBool("isJump", true);
             rb.AddForce(Vector3.up * jumpForce);
             //rb.AddTorque(torqueDirection * rotationSpeed);
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
+        else if (Input.GetKeyUp(KeyCode.Space) || (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Canceled)))
         {
             anim.SetBool("isJump", false);
         }

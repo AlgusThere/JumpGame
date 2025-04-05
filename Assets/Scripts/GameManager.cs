@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     //bool isEqual2 = true;
     bool gamePanelIsActive;
     public bool isPausePanelActive = false;
+    public bool isPausePanelActivePhone = false;
 
     public static GameManager instance = null;
 
@@ -101,9 +102,21 @@ public class GameManager : MonoBehaviour
             isPausePanelActive = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && Time.timeScale == 0 && isPausePanelActive == false)
+        if ((Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) && Time.timeScale == 0 && isPausePanelActive == false)
         {
             Time.timeScale = 1;
+        }
+    }
+
+    public void PauseButton()
+    {
+        isPausePanelActivePhone = true;
+
+        if (isPausePanelActivePhone == true)
+        {
+            Time.timeScale = 0;
+            pausePanel.SetActive(true);
+            isPausePanelActive = true;
         }
     }
 
@@ -162,6 +175,7 @@ public class GameManager : MonoBehaviour
         gamePanel.SetActive(true);
         gamePanelIsActive = true;
         isPausePanelActive = false;
+        isPausePanelActivePhone = false;
         Time.timeScale = 1;
     }
 
